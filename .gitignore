@@ -1,0 +1,36 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+/cmd/server/server
+bin/
+
+# Test binary
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Dependency directories
+vendor/
+
+# Go workspace file
+go.work
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Config
+config/config.local.yaml
+
+# Logs
+*.log
+
+# Wire 生成的文件（可选：如果团队都安装了 Wire，可以不提交）
+# cmd/server/wire_gen.go
