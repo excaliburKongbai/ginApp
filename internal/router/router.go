@@ -1,7 +1,6 @@
 package router
 
 import (
-	"fmt"
 	"ginApp/internal/container"
 	"ginApp/internal/middleware"
 	"github.com/gin-gonic/gin"
@@ -33,10 +32,6 @@ func Routers(container *container.Container) *gin.Engine {
 	InitUserAccountRouter(routerGroup, container)
 	//系统入口
 	InitSystemRouter(routerGroup, container)
-
-	defer func() {
-		fmt.Println("执行完毕了接口")
-	}()
 
 	return Router
 }
