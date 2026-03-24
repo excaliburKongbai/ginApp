@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"ginApp/internal/config"
 	amqp "github.com/rabbitmq/amqp091-go"
+	"log"
 )
 
 var Mq *amqp.Connection
@@ -20,8 +21,9 @@ func InitAmqp() error {
 		cfg.User, cfg.Password, cfg.Host, cfg.Port,
 	))
 	if err != nil {
-		return fmt.Errorf("连接rabbitmq失败: %w", err)
+		return fmt.Errorf("连接rabbitMq失败: %w", err)
 	}
+	log.Println("rabbitMq 连接成功")
 	return nil
 }
 

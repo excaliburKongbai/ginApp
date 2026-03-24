@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"ginApp/core"
 	"ginApp/internal/container"
 	"log"
@@ -12,6 +13,7 @@ import (
 // main 应用程序入口
 // 这是整个应用的启动点，负责初始化所有组件并启动服务器
 func main() {
+	defer systemOut()
 	// ==================== 第一步：加载配置 ====================
 	// 从 config/config.yaml 读取所有配置（数据库、Redis、服务器端口等）
 	if err := config.Load("config/config.yaml"); err != nil {
@@ -42,4 +44,12 @@ func initializeSystem() {
 	container.Initialize()
 	//db初始化
 	core.DbInitialize()
+
+}
+
+// 系统结束
+func systemOut() {
+	if r := recover(); r != nil {
+		log.Println(fmt.Sprintf("系统发生错误:%s", r))
+	}
 }

@@ -22,7 +22,7 @@ redis:
 amqp:
   host: localhost
   port: 5672
-  user: admin
+  user: gin
   password: 123456
 
 jwt:

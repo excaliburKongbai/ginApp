@@ -1,6 +1,7 @@
 package router
 
 import (
+	"fmt"
 	"ginApp/internal/container"
 	"ginApp/internal/middleware"
 	"github.com/gin-gonic/gin"
@@ -17,8 +18,9 @@ func Routers(container *container.Container) *gin.Engine {
 	Router := gin.New()
 
 	//使用中间件
-	Router.Use(middleware.CORS())
-	Router.Use(middleware.Logger())
+	Router.Use(middleware.Recovery()) //错误收集
+	Router.Use(middleware.CORS())     //响应头
+	Router.Use(middleware.Logger())   //响应时间
 
 	apiRouter := Router.Group("/api")
 	//公共接口
@@ -29,8 +31,12 @@ func Routers(container *container.Container) *gin.Engine {
 
 	//用户接口
 	InitUserAccountRouter(routerGroup, container)
+	//系统入口
+	InitSystemRouter(routerGroup, container)
 
-	//todo 其他接口
+	defer func() {
+		fmt.Println("执行完毕了接口")
+	}()
 
 	return Router
 }
