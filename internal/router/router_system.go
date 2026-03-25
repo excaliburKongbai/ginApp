@@ -12,6 +12,7 @@ func InitSystemRouter(r *RouterGroup, c *container.Container) {
 
 	//系统信息
 	r.Public.GET("/info", handler.Info)
+
 	//env环境
 	r.Public.GET("/env", handler.Env)
 }

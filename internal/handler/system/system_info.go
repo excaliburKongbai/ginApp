@@ -8,6 +8,12 @@ import (
 )
 
 // Info 获取用户信息
+// @Summary 获取用户信息
+// @Description 返回 info
+// @Tags system
+// @Produce json
+// @Success 200 {object} map[string]string
+// @Router /info [get]
 func (h *Handler) Info(c *gin.Context) {
 	// 从 token 或 session 中获取用户 ID（这里简化处理）
 	userIDStr := c.Query("user_id")
@@ -32,6 +38,12 @@ func (h *Handler) Info(c *gin.Context) {
 }
 
 // Env 获取env版本
+// @Summary 获取env版本
+// @Description 返回 env
+// @Tags system
+// @Produce json
+// @Success 200 {object} map[string]string Response
+// @Router /env [get]
 func (h *Handler) Env(c *gin.Context) {
 	response.OkWithDetailed(gin.H{
 		"env": env.Active().Value(),

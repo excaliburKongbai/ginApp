@@ -1,0 +1,38 @@
+basePath: /api
+info:
+  contact: {}
+  description: API 文档
+  title: Gin App API
+  version: "1.0"
+paths:
+  /env:
+    get:
+      description: 返回 env
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 健康检查
+      tags:
+      - system
+  /info:
+    get:
+      description: 返回 info
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: 健康检查
+      tags:
+      - system
+swagger: "2.0"

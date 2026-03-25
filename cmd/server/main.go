@@ -12,6 +12,12 @@ import (
 
 // main 应用程序入口
 // 这是整个应用的启动点，负责初始化所有组件并启动服务器
+// @title Gin App API
+// @version 1.0
+// @description API 文档
+// @host
+
+// @BasePath /api
 func main() {
 	defer systemOut()
 	// ==================== 第一步：加载配置 ====================
